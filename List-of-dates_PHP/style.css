@@ -1,0 +1,26 @@
+
+div {
+font-size:1.2em;
+margin-bottom:10px;
+}
+
+form[name="fields"] input{
+margin:5px;
+font-size:1.2em;
+color:green;}
+
+form[name="fields"] select{
+margin:5px;
+font-size:1.2em;
+color:green;}
+
+
+
+form[name="fields"] input[type="text"]{
+margin-right:-10px;
+width:150px;}
+
+.warning
+{
+color:red;
+font-size:1.2em;}

@@ -1,0 +1,44 @@
+Подключение к базе! Важно!
+У меня подключение вызывается функцией с такими параметрами: 
+mysql_connect('localhost', 'root', '');
+Поменять их: '/Model/Model.php' строка 60 - один раз в одном месте!!!
+
+Тут команды SQL по созданию БД для начала работы:
+
+create database Rent;
+use Rent;
+create table apartment (ap_number TINYINT UNSIGNED NOT NULL,availability enum ('yes','no') NOT NULL, PRIMARY KEY(ap_number));
+create table users (id_user TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(40) NOT NULL, email CHAR(40) NOT NULL, PRIMARY KEY(id_user));
+create table orders (id_order TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, customer TINYINT UNSIGNED NOT NULL, ordered_ap_number TINYINT UNSIGNED NOT NULL, order_date DATETIME NOT NULL, comment TEXT, PRIMARY KEY(id_order),FOREIGN KEY (customer) REFERENCES users (id_user), FOREIGN KEY (ordered_ap_number) REFERENCES apartment (ap_number));
+insert into apartment values (3,'no');
+insert into apartment values (4,'yes');
+insert into apartment values (5,'no');
+insert into apartment values (8,'yes');
+insert into apartment values (10,'no');
+insert into apartment values (12,'no');
+insert into apartment values (14,'yes');
+insert into apartment values (15,'no');
+insert into apartment values (26,'no');
+insert into apartment values (28,'no');
+insert into apartment values (31,'yes');
+insert into apartment values (33,'yes');
+insert into apartment values (34,'no');
+
+insert into users values (null,'Vasiliy','Vasya@mail.ru');
+insert into users values (null,'Veronica','Vr6754@yandex.ru');
+insert into users values (null,'Maria','StrontsevaMaria@gox.ua');
+insert into users values (null,'Ludmila','Luda45909@gt.all.net');
+insert into users values (null,'Ivan','DorU5@mail.ru');
+insert into users values (null,'Petro','PVnerve@sotial.crime.ua');
+insert into users values (null,'Lori','Lori8864@gmail.com');
+insert into users values (null,'Yevellin','YevellinSorry@sopr.met.net');
+
+insert into orders values (null,6,15,'2015-08-21 10:12:39',null);
+insert into orders values (null,2,5,'2015-08-21 12:23:45',null);
+insert into orders values (null,8,12,'2015-08-21 13:44:57',null);
+insert into orders values (null,2,10,'2015-08-22 14:34:12','Waiting for answer');
+insert into orders values (null,4,28,'2015-08-22 15:33:12',null);
+insert into orders values (null,6,34,'2015-08-22 15:38:11',null);
+insert into orders values (null,2,26,'2015-08-22 18:10:05','How long?');
+insert into orders values (null,3,3,'2015-08-23 02:13:01',null);
+				
